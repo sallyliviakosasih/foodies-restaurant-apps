@@ -1,6 +1,8 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const BundlerAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TerserWebpackPlugin = require('terser-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -26,6 +28,10 @@ module.exports = merge(common, {
     new WorkboxWebpackPlugin.InjectManifest({
       swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
       swDest: './sw.bundle.js',
+    }),
+    new BundlerAnalyzerPlugin(),
+    new TerserWebpackPlugin({
+      parallel: true,
     }),
   ],
 });

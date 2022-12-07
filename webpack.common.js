@@ -4,7 +4,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
-const BundlerAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const { gzip } = require('zlib');
 
 module.exports = {
   entry: {
@@ -37,7 +38,7 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       minSize: 20000,
-      maxSize: 70000,
+      maxSize: 50000,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
@@ -88,6 +89,9 @@ module.exports = {
       ],
       overrideExtension: true,
     }),
-    new BundlerAnalyzerPlugin(),
+    new CompressionWebpackPlugin({
+      include: /\.js$/,
+      algorithm: gzip,
+    }),
   ],
 };
