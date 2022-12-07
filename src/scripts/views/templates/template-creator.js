@@ -17,7 +17,7 @@ const dataCatalogueRestaurant = (restaurant) => `
 `;
 const dataSearchResultRestaurant = (restaurant) => `
     <div class="result">
-        <picture>
+        <picture class="pict-result">
             <source type="image/webp" media="(max-width: 600px)" srcset="${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}">
             <img class="pict-result" src="${CONFIG.BASE_IMAGE_URL}medium/${restaurant.pictureId}" alt="picture of ${restaurant.name}">
         </picture>

@@ -37,6 +37,7 @@ header {
 }
 .header-inner {
 	>img {
+		aspect-ratio: 175/66;
 		width: 175px;
 	}
 }
@@ -216,6 +217,7 @@ header {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 10px;
+	aspect-ratio: 1/1;
 }
 .feature-title {
 	text-align: center;
@@ -228,8 +230,7 @@ header {
 	padding: 10px 10%;
 }
 .footer-logo {
-	min-width: 44px;
-	min-height: 44px;
+	aspect-ratio: 8/3;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
